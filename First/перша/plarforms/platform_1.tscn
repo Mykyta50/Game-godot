@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkaocjdr4vwbq"]
+
+[ext_resource type="Script" path="res://plarforms/platform_1.gd" id="1_2v0ag"]
+[ext_resource type="Texture2D" uid="uid://crubwu5d3fwox" path="res://Platform.png" id="1_q6k1m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tubf5"]
+size = Vector2(170, 16)
+
+[node name="platform_1" type="CharacterBody2D"]
+script = ExtResource("1_2v0ag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q6k1m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_tubf5")
