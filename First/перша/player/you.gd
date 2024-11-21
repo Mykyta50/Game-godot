@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 func _on_restart_timeout() -> void:
 	get_tree().change_scene_to_file("res://levels/level_1.tscn")
 	
-var mobs = ["Orc", "Orc2", "Orc3"]
+var mobs = ["Orc", "Orc2", "Orc3", "Orc4"]
 
 func _on_attack_body_entered(body: Node2D) -> void:
 	if body.name in mobs:
