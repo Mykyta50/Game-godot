@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://cm8s7ccve6h3c"]
+
+[ext_resource type="Texture2D" uid="uid://6og63rdl5l2y" path="res://HP.png" id="1_03brd"]
+[ext_resource type="FontFile" uid="uid://r21aclhkkg6l" path="res://Monocraft.otf" id="2_8ot1b"]
+[ext_resource type="PackedScene" uid="uid://cnyye0o3u5n8h" path="res://player/cheat.tscn" id="3_5jg41"]
+[ext_resource type="Texture2D" uid="uid://doy4goofdiums" path="res://Coin.png" id="4_kcjpr"]
+[ext_resource type="Script" path="res://levels/label.gd" id="5_nvnk3"]
+[ext_resource type="Texture2D" uid="uid://dbg0mm2irg2oy" path="res://Characters(100x100)/Soldier/Arrow(projectile)/Arrow01(32x32).png" id="6_u2gma"]
+[ext_resource type="Texture2D" uid="uid://bip44014245an" path="res://Health-Potion.png" id="7_j42do"]
+[ext_resource type="Script" path="res://player/hp_potion.gd" id="8_edylq"]
+[ext_resource type="PackedScene" uid="uid://cjoptpano7xaq" path="res://UI/pause.tscn" id="9_i4720"]
+
+[sub_resource type="GDScript" id="GDScript_mqvl5"]
+script/source = "extends Label
+
+func _process(_delta):
+	text = str(Global.hp) + \"/\" + str(Global.max_hp)
+"
+
+[sub_resource type="GDScript" id="GDScript_rf74o"]
+script/source = "extends Label
+
+func _process(_delta):
+	text = str(Global.coins)
+"
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+
+[node name="HP_2" type="Sprite2D" parent="."]
+position = Vector2(42, 46)
+scale = Vector2(0.0226042, 0.0238542)
+texture = ExtResource("1_03brd")
+
+[node name="HP" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.0291667
+anchor_right = 0.0291667
+offset_left = 23.0
+offset_top = 24.0
+offset_right = 104.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("2_8ot1b")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_mqvl5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Cheat" parent="." instance=ExtResource("3_5jg41")]
+visible = false
+offset_left = 19.0
+offset_top = 991.0
+offset_right = 725.0
+offset_bottom = 1040.0
+
+[node name="Coins_2" type="Sprite2D" parent="."]
+position = Vector2(43, 105)
+scale = Vector2(2.5, 2.55)
+texture = ExtResource("4_kcjpr")
+
+[node name="Coins" type="Label" parent="."]
+offset_left = 77.0
+offset_top = 84.0
+offset_right = 163.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("2_8ot1b")
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_rf74o")
+
+[node name="Arrows" type="Label" parent="."]
+offset_left = 282.0
+offset_top = 17.0
+offset_right = 391.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("2_8ot1b")
+theme_override_font_sizes/font_size = 25
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_nvnk3")
+
+[node name="Arrows_2" type="Sprite2D" parent="."]
+position = Vector2(286, 40)
+rotation = -0.772037
+scale = Vector2(3.18654, 2.6634)
+texture = ExtResource("6_u2gma")
+
+[node name="HP_potion_2" type="Sprite2D" parent="."]
+position = Vector2(274, 112)
+scale = Vector2(0.263306, 0.253296)
+texture = ExtResource("7_j42do")
+
+[node name="HP_potion" type="Label" parent="."]
+offset_left = 292.0
+offset_top = 83.0
+offset_right = 383.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("2_8ot1b")
+theme_override_font_sizes/font_size = 25
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_edylq")
+
+[node name="Pause" parent="." instance=ExtResource("9_i4720")]
+process_mode = 3
+visible = false

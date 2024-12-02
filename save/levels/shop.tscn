@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhekll6jcgiev"]
+
+[ext_resource type="Texture2D" uid="uid://gmc5iwbdmp26" path="res://M/df9mbfs-d749dd53-8771-43c3-abaa-0935a2a79151.png" id="1_o7gqu"]
+[ext_resource type="Script" path="res://levels/shop.gd" id="1_pf36t"]
+[ext_resource type="Texture2D" uid="uid://rdcg4ljptl5i" path="res://M/Button_1.png" id="3_su3lw"]
+[ext_resource type="Texture2D" uid="uid://co07t6b6ledwj" path="res://M/Button_2.png" id="4_lxbu5"]
+[ext_resource type="Texture2D" uid="uid://bo8sycpbyw1gw" path="res://Characters(100x100)/Soldier/Arrow(projectile)/Arrow01(100x100).png" id="5_j68j6"]
+[ext_resource type="FontFile" uid="uid://r21aclhkkg6l" path="res://Monocraft.otf" id="6_7e2gd"]
+[ext_resource type="Texture2D" uid="uid://bip44014245an" path="res://Health-Potion.png" id="6_jjlxn"]
+[ext_resource type="Texture2D" uid="uid://6og63rdl5l2y" path="res://HP.png" id="7_u4bat"]
+[ext_resource type="Texture2D" uid="uid://3bgk82reuypr" path="res://jump.png" id="8_5gn8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6laq"]
+size = Vector2(58, 120)
+
+[node name="Shop" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_pf36t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -176)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_o7gqu")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -61)
+shape = SubResource("RectangleShape2D_m6laq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 2
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -900.0
+offset_top = -470.0
+offset_right = 900.0
+offset_bottom = 470.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 2
+offset_left = 150.0
+offset_top = 530.0
+offset_right = 450.0
+offset_bottom = 830.0
+texture_normal = ExtResource("3_su3lw")
+texture_hover = ExtResource("4_lxbu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/TextureButton"]
+position = Vector2(149, 152)
+scale = Vector2(5, 5)
+texture = ExtResource("5_j68j6")
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 2
+offset_left = 550.0
+offset_top = 530.0
+offset_right = 850.0
+offset_bottom = 830.0
+texture_normal = ExtResource("3_su3lw")
+texture_hover = ExtResource("4_lxbu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/TextureButton2"]
+position = Vector2(131, 173)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_jjlxn")
+
+[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 2
+offset_left = 950.0
+offset_top = 530.0
+offset_right = 1250.0
+offset_bottom = 830.0
+texture_normal = ExtResource("3_su3lw")
+texture_hover = ExtResource("4_lxbu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/TextureButton3"]
+position = Vector2(151, 150)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("7_u4bat")
+
+[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 2
+offset_left = 1350.0
+offset_top = 530.0
+offset_right = 1650.0
+offset_bottom = 830.0
+texture_normal = ExtResource("3_su3lw")
+texture_hover = ExtResource("4_lxbu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/TextureButton4"]
+position = Vector2(156, 130)
+scale = Vector2(8, 8)
+texture = ExtResource("8_5gn8i")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.239
+anchor_right = 0.5
+anchor_bottom = 0.239
+offset_left = -762.0
+offset_top = -137.66
+offset_right = 762.0
+offset_bottom = 138.34
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -717.0
+offset_top = -96.0
+offset_right = 717.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_7e2gd")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/TextureButton2" to="." method="_on_texture_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/TextureButton2" to="." method="_on_texture_button_2_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/TextureButton3" to="." method="_on_texture_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/TextureButton3" to="." method="_on_texture_button_3_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/TextureButton4" to="." method="_on_texture_button_4_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/TextureButton4" to="." method="_on_texture_button_4_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/TextureButton4" to="." method="_on_texture_button_4_pressed"]

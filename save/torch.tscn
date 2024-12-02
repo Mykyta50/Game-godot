@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqcbhwxio0nh5"]
+
+[ext_resource type="Texture2D" uid="uid://dbtqoiv5gc6o0" path="res://Torch Animated.png" id="1_gonh1"]
+[ext_resource type="Texture2D" uid="uid://dm8is5nq2dgf" path="res://circle.png" id="2_wtx1r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mercx"]
+atlas = ExtResource("1_gonh1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr6q1"]
+atlas = ExtResource("1_gonh1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjkc7"]
+atlas = ExtResource("1_gonh1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01lqq"]
+atlas = ExtResource("1_gonh1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boeww"]
+atlas = ExtResource("1_gonh1")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwtss"]
+atlas = ExtResource("1_gonh1")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmp00"]
+atlas = ExtResource("1_gonh1")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us561"]
+atlas = ExtResource("1_gonh1")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xp1wf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mercx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr6q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjkc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01lqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boeww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwtss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmp00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us561")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="torch" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xp1wf")
+autoplay = "default"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1.99994, -2.99998)
+scale = Vector2(0.940316, 0.5901)
+color = Color(1, 0.541398, 0.103959, 1)
+energy = 1.5
+shadow_color = Color(1, 1, 1, 0)
+texture = ExtResource("2_wtx1r")
+texture_scale = 0.5

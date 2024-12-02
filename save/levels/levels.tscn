@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpufinky1uywp"]
+
+[ext_resource type="PackedScene" uid="uid://bn8crl0pcf12y" path="res://background.tscn" id="1_2fwp5"]
+[ext_resource type="Script" path="res://levels/levels.gd" id="1_lknwc"]
+[ext_resource type="FontFile" uid="uid://r21aclhkkg6l" path="res://Monocraft.otf" id="3_0a5p5"]
+
+[node name="Levels" type="Node2D"]
+script = ExtResource("1_lknwc")
+
+[node name="Background" parent="." instance=ExtResource("1_2fwp5")]
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0.410165, 0.860831, 0.456218, 1)
+offset_left = 450.0
+offset_top = 500.0
+offset_right = 688.0
+offset_bottom = 675.0
+theme_override_fonts/font = ExtResource("3_0a5p5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 850.0
+offset_top = 500.0
+offset_right = 1088.0
+offset_bottom = 675.0
+theme_override_fonts/font = ExtResource("3_0a5p5")
+theme_override_font_sizes/font_size = 100
+text = "2"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 1250.0
+offset_top = 500.0
+offset_right = 1488.0
+offset_bottom = 675.0
+theme_override_fonts/font = ExtResource("3_0a5p5")
+theme_override_font_sizes/font_size = 100
+text = "3"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

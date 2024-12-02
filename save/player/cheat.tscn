@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnyye0o3u5n8h"]
+
+[ext_resource type="FontFile" uid="uid://r21aclhkkg6l" path="res://Monocraft.otf" id="1_go2im"]
+[ext_resource type="Script" path="res://player/cheat.gd" id="1_meec3"]
+
+[node name="Cheat" type="LineEdit"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 943.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("1_go2im")
+theme_override_font_sizes/font_size = 35
+placeholder_text = "Введіть:"
+script = ExtResource("1_meec3")
