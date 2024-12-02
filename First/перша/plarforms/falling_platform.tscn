@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3pjcww6mgofc"]
+
+[ext_resource type="Script" path="res://plarforms/falling_platform.gd" id="1_ed56w"]
+[ext_resource type="Texture2D" uid="uid://crubwu5d3fwox" path="res://Platform.png" id="1_mk1ks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgja5"]
+size = Vector2(170, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x1qq"]
+size = Vector2(170, 17)
+
+[node name="falling_platform" type="CharacterBody2D"]
+script = ExtResource("1_ed56w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mk1ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_jgja5")
+
+[node name="fall_detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fall_detector"]
+position = Vector2(-3, -1.5)
+shape = SubResource("RectangleShape2D_8x1qq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="fall_detector" to="." method="_on_fall_detector_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
